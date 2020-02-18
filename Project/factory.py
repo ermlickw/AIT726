@@ -2,12 +2,22 @@
 AIT726 Project -- Insincere Question Classification Due 10/10/2019
 https://www.kaggle.com/c/quora-insincere-questions-classification
 
-This project deals with the 
+This project deals with addressing illegitimate questions in online question answering
+(QA) forums. A dataset obtained from Kaggle regarding questions posted from users on Quora
+is used for both testing and evaluation. 
 Authors: Srashti Agrawal, Billy Ermlick, Nick Newman
-Command to run the file: python HW2.py 
+Command to run the file: python FactoryModelAverageAttention.py 
 i. main - runs all of the functions
-    i. get_docs - tokenizes all tweets, returns a list of tokenized sentences and a list of all tokens
-    ii. get_ngrams_vector 
+    i. get_docs - tokenizes and preprocesses the text of the questions. Returns the vocabulary,
+                  training questions and labels, and test questions and labels.
+                  If readytosubmit = True, returns the specified size of the training set. 
+    ii. get_context_vector - takes the pre-processed questions as input and transforms them
+                             into array form for easy use in neural methods. Returns arrays and labels,
+                             index-to-word mapping, the entire vocabulary, and the total padding length.
+    iii. build_weights_matrix - takes the entire vocabulary and maps it to a pre-trained embedding.
+                                Returns the mapped pre-trained embedding in numpy array form.
+    iv. run_model - runs the neural network with attention and predicts on the test set.
+                            The predictions are saved to a csv titled 'submission.csv'.
 """
 import os
 import re
